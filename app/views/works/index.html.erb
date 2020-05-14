@@ -1,1 +1,65 @@
-<h3> Works! </h3>
+<h2> List of Works </h2>
+
+<% if @albums.length > 0 %>
+  <h2>Albums</h2>
+  <table class = "table">  
+    <tr>
+      <th>Title</th>
+      <th>Created By</th>
+      <th>Published</th>
+    </tr>
+  <% @albums.each do |album| %>
+    <tr>
+      <th><%= album.title %></th>
+      <th><%= album.creator %></th>
+      <th><%= album.publication_year %></th>
+    </tr>
+  <% end %>
+  </table>
+<% else %>
+    <h3> No Albums in the system! </h3>
+<% end %>
+
+
+
+<% if @books.length > 0 %>
+  <h2>Books</h2>
+  <table class = "table">  
+    <tr>
+      <th>Title</th>
+      <th>Created By</th>
+      <th>Published</th>
+    </tr>
+  <% @books.each do |book| %>
+    <tr>
+      <th><%= book.title %></th>
+      <th><%= book.creator %></th>
+      <th><%= book.publication_year %></th>
+    </tr>
+  <% end %>
+  </table>
+<% else %>
+    <h3> No books in the system! </h3>
+<% end %>
+
+
+
+<% if @movies.length > 0 %>
+  <h2>Movies</h2>
+  <table class = "table">  
+    <tr>
+      <th>Title</th>
+      <th>Created By</th>
+      <th>Published</th>
+    </tr>
+  <% @movies.each do |movie| %>
+    <tr>
+      <th><%= movie.title %></th>
+      <th><%= movie.creator %></th>
+      <th><%= movie.publication_year %></th>
+    </tr>
+  <% end %>
+  </table>
+<% else %>
+    <h3> No movies in the system! </h3>
+<% end %>
