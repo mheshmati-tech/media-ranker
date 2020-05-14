@@ -1,0 +1,25 @@
+<div class="form">
+  <%= form_with model: @work do |f| %>
+  <div>
+    <%= f.label :category %>
+    <%= f.select :category, options_for_select(["Album", "Book", "Movie"])%>
+  </div>
+  <div>
+    <%= f.label :title, "Title"%>
+    <%= f.text_field :title %>
+  </div>
+  <div>
+    <%= f.label :creator, "Creator"%>
+    <%= f.text_field :creator %>
+  </div>
+  <div>
+    <%= f.label :publication_year, "Publication Year"%>
+    <%= f.text_field :publication_year %>
+  </div>
+  <div>
+    <%= f.label :description, "Description"%>
+    <%= f.text_field :description %>
+  </div>
+    <%= f.submit action_name, class: "button" %>
+  <% end %>
+</div>
