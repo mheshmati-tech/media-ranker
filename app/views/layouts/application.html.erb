@@ -1,45 +1,40 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>MediaRanker</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
-
-  <body>
-    <header class="app-header__header">
-    <h1>
-      <%= link_to "Media Ranker", root_path %>
-      <small>Ranking the Best of Everything</small>
-    </h1>
-
-    <nav class="app-header__nav">
-      <ul class="nav app-header__site-nav-container">
-        <li class="nav-item app-header__nav_item">
-          <div class="nav-link"> <%= link_to "Top Media", root_path %></div>
-        </li>
-        <li class="nav-item app-header__nav_item">
-          <div class="nav-link"> <%= link_to "All media", works_path %></div>
-        </li>
-        <li class="nav-item app-header__nav_item">
-          <div class="nav-link"> <%= link_to "Add new work", new_work_path %></div>
-        </li>
-        <li class="nav-item app-header__nav_item">
-          <div class="nav-link"> <%= link_to "All Users", root_path %></div>
-        </li>
-      </ul>
-      <ul class="nav app-header__user-nav-container">
-
-        <li class="nav-item app-header__nav_item">
-          <a class="btn btn-primary" href="/login">Log In</a>
-        </li>
-
-      </ul>
-    </nav>
-  </header>
-    <%= yield %>
-  </body>
+	<head>
+		<title>MediaRanker</title>
+		<%= csrf_meta_tags %>
+		<%= csp_meta_tag %>
+		<%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+		<%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+	</head>
+	<body>
+		<header class="app-header__header">
+			<h1>
+				<%= link_to "Media Ranker", root_path %>
+				<small>Ranking the Best of Everything</small>
+			</h1>
+			<nav class="app-header__nav">
+				<ul class="nav app-header__site-nav-container">
+					<li class="nav-item app-header__nav_item">
+						<div class="nav-link"> <%= link_to "Top Media", root_path %></div>
+					</li>
+					<li class="nav-item app-header__nav_item">
+						<div class="nav-link"> <%= link_to "All media", works_path %></div>
+					</li>
+					<li class="nav-item app-header__nav_item">
+						<div class="nav-link"> <%= link_to "Add new work", new_work_path %></div>
+					</li>
+					<li class="nav-item app-header__nav_item">
+						<div class="nav-link"> <%= link_to "All Users", root_path %></div>
+					</li>
+				</ul>
+				<ul class="nav app-header__user-nav-container">
+					<li class="nav-item app-header__nav_item">
+						<a class="btn btn-primary" href="/login">Log In</a>
+					</li>
+				</ul>
+			</nav>
+		</header>
+		<%= yield %>
+	</body>
 </html>
