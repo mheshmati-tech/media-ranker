@@ -1,3 +1,12 @@
+<% if @work.errors.any? %>
+  <p><strong>There was an error in saving this media: </strong></p>
+  <ul>
+    <% @work.errors.each do |column, message| %>
+      <li><%= column.capitalize %> <%= message%>.</li>
+    <% end %>
+  </ul>
+<% end %>
+
 <div class="form">
   <%= form_with model: @work do |f| %>
   <div>

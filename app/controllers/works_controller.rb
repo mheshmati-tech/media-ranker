@@ -19,6 +19,16 @@ class WorksController < ApplicationController
   end
 
   def create
+    @work = Work.new(work_params)
+
+    if @work.save
+        redirect_to work_path(@work.id)
+        return 
+    else
+        render :new
+        return 
+    end
+    
   end
 
   def edit
@@ -42,13 +52,23 @@ class WorksController < ApplicationController
   end
 
   def destroy
+    @work = Work.find_by(id: params[:id])
+
+    if @work.nil?
+        head :not_found
+        return
+    else
+        @work.destroy
+        redirect_to root_path
+        return 
+    end
   end
 
   private
 
   def work_params
-    variable = params.require(:work).permit(:category, :title, :creator, :publication_year, :description)
-    variable[:category].downcase!
-    return variable
+    user_input = params.require(:work).permit(:category, :title, :creator, :publication_year, :description)
+    user_input[:category].downcase!
+    return user_input
   end
 end

@@ -1,0 +1,43 @@
+<h1>Media Ranker</h1>
+<h1>Ranking the Best of Everything</h1>
+
+
+
+<body>
+
+<div class="topnav">
+  <%= link_to "Top Media", homepages_path %>
+  <%= link_to "All Media", works_path %>
+  <%= link_to "Add a new media", new_work_path %>
+  <a href="#about">All users</a>
+</div>
+
+
+<h3>Media Spotlight: <%= @works.sample(1)[0][:title]%></h3>
+
+<p> Top Movies </p>
+<div style="padding-left:16px">
+  <% @books.sample(10).each do |book| %>
+    <p><%= book.title%> by <%=book.creator%></p>
+    
+  <% end %>
+</div>
+
+<p> Top Albums </p>
+<div style="padding-left:16px">
+  <% @albums.sample(10).each do |album| %>
+    <p><%= album.title%> by <%=album.creator%></p>
+    
+  <% end %>
+</div>
+
+
+<p> Top Movies </p>
+<div style="padding-left:16px">
+  <% @movies.sample(10).each do |movie| %>
+    <p><%= movie.title%> by <%=movie.creator%></p>
+    
+  <% end %>
+</div>
+
+</body>
