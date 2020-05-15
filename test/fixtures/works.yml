@@ -1,0 +1,18 @@
+superdream:
+  category: album
+  title: Superdream
+  creator: Big Wild
+  publication_year: 2019
+  description: chill, upbeat, overall sick album!
+becoming:
+  category: book
+  title: Becoming
+  creator: Michelle Obama
+  publication_year: 2018
+  description: A memoir of Michelle Obama; composed of stories of her childhood in the south side of Chicago, going to Harvard Law School, and eventually becoming the first black lady. 
+forrest_gump:
+  category: movie
+  title: Forrest Gump
+  creator: Eric Roth
+  publication_year: 1994
+  description: Forrest Gump is an American comedy-drama. The story depicts several decades in the life of Forrest Gump, a slow-witted but kind-hearted man from Alabama who witnesses and unwittingly influences several defining historical events in the 20th century United States. 
