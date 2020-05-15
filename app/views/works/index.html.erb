@@ -1,65 +1,121 @@
-<h2> List of Works </h2>
 
-<% if @albums.length > 0 %>
-  <h2>Albums</h2>
-  <table class = "table">  
-    <tr>
-      <th>Title</th>
-      <th>Created By</th>
-      <th>Published</th>
-    </tr>
-  <% @albums.each do |album| %>
-    <tr>
-      <th><%= link_to album.title, work_path(album.id) %></th>
-      <th><%= album.creator %></th>
-      <th><%= album.publication_year %></th>
-    </tr>
-  <% end %>
-  </table>
-<% else %>
-    <h3> No Albums in the system! </h3>
-<% end %>
+<body>
+  <header class="app-header__header">
+    <h1>
+      <a href="/">Media Ranker</a>
+      <small>Ranking the Best of Everything</small>
+    </h1>
 
+    <nav class="app-header__nav">
+      <ul class="nav app-header__site-nav-container">
+        <li class="nav-item app-header__nav_item">
+          <a class="nav-link" href="/">View top media</a>
+        </li>
+        <li class="nav-item app-header__nav_item">
+          <a class="nav-link" href="/works">View all media</a>
+        </li>
+        <li class="nav-item app-header__nav_item">
+          <a class="nav-link" href="/works/new">Add a new work</a>
+        </li>
+        <li class="nav-item app-header__nav_item">
+          <a class="nav-link" href="/users">View all users</a>
+        </li>
+      </ul>
+      <ul class="nav app-header__user-nav-container">
 
+        <li class="nav-item app-header__nav_item">
+          <a class="btn btn-primary" href="/login">Log In</a>
+        </li>
 
-<% if @books.length > 0 %>
-  <h2>Books</h2>
-  <table class = "table">  
-    <tr>
-      <th>Title</th>
-      <th>Created By</th>
-      <th>Published</th>
-    </tr>
-  <% @books.each do |book| %>
-    <tr>
-      <th><%= link_to book.title, work_path(book.id) %></th>
-      <th><%= book.creator %></th>
-      <th><%= book.publication_year %></th>
-    </tr>
-  <% end %>
-  </table>
-<% else %>
-    <h3> No books in the system! </h3>
-<% end %>
+      </ul>
+    </nav>
+  </header>
 
 
+  <main>
+    <h2>List of Works</h2>
 
-<% if @movies.length > 0 %>
-  <h2>Movies</h2>
-  <table class = "table">  
-    <tr>
-      <th>Title</th>
-      <th>Created By</th>
-      <th>Published</th>
-    </tr>
-  <% @movies.each do |movie| %>
-    <tr>
-      <th><%= link_to movie.title, work_path(movie.id) %></th>
-      <th><%= movie.creator %></th>
-      <th><%= movie.publication_year %></th>
-    </tr>
-  <% end %>
-  </table>
-<% else %>
-    <h3> No movies in the system! </h3>
-<% end %>
+  <section class="media-table">
+    <h4>Albums</h4>
+    <table class="table">
+      <thead>
+        <tr>
+          <th width="80">Votes</th>
+          <th>Title</th>
+          <th>Created By</th>
+          <th width="100">Published</th>
+          <th width="100">Upvote</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @albums.each do |album| %>
+          <tr>
+              <td>Number of votes</td>
+              <td width="row"><%= link_to album.title, work_path(album.id) %></td>
+              <td><%= album.creator %></td>
+              <td><%= album.publication_year %></td>
+              <td><a class="btn btn-primary" rel="nofollow" data-method="post" href="/works/573/upvote">Upvote</a></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </section>
+  <section class="media-table">
+    <h4>Books</h4>
+    <table class="table">
+      <thead>
+        <tr>
+          <th width="80">Votes</th>
+          <th>Title</th>
+          <th>Created By</th>
+          <th width="100">Published</th>
+          <th width="100">Upvote</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @books.each do |book| %>
+          <tr>
+              <td>Number of votes</td>
+              <td width="row"><%= link_to book.title, work_path(book.id) %></td>
+              <td><%= book.creator %></td>
+              <td><%= book.publication_year %></td>
+              <td><a class="btn btn-primary" rel="nofollow" data-method="post" href="/works/573/upvote">Upvote</a></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <section class="media-table">
+    <h4>Movies</h4>
+    <table class="table">
+      <thead>
+        <tr>
+          <th width="80">Votes</th>
+          <th>Title</th>
+          <th>Created By</th>
+          <th width="100">Published</th>
+          <th width="100">Upvote</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @movies.each do |movie| %>
+          <tr>
+              <td>Number of votes</td>
+              <td width="row"><%= link_to movie.title, work_path(movie.id) %></td>
+              <td><%= movie.creator %></td>
+              <td><%= movie.publication_year %></td>
+              <td><a class="btn btn-primary" rel="nofollow" data-method="post" href="/works/573/upvote">Upvote</a></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </section>
+
+  <a class="btn btn-secondary" href="/">View top media</a>
+  <a class="btn btn-primary" href="/works/new">Add a new work</a>
+
+</main>
+
+
+</body>
+
+
