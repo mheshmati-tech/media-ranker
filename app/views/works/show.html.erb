@@ -2,5 +2,8 @@
 <p>Created by: <%= @work.creator%></p>
 <p>Published: <%= @work.publication_year%></p>
 <p><%= @work.description%></p>
-<button><%= link_to "Edit", edit_work_path(@work.id) %></button>
-<button><%= link_to "Delete", work_path(@work.id), method: :delete, data: { confirm: "Are you sure you'd like to delete #{@work.title}? You can't undo this action." } %></button>
+<button type="button" class = "btn btn-outline-primary"><%= link_to "Back to media ranks", root_path %></button>
+<button type="button" class = "btn btn-outline-primary"><%= link_to "Edit", edit_work_path(@work.id) %></button>
+<button type="button" class = "btn btn-outline-primary"><%= link_to "Delete", work_path(@work.id), method: :delete, data: { confirm: "Are you sure you'd like to delete #{@work.title}? You can't undo this action." } %></button>
+
+
