@@ -2,7 +2,7 @@
 	<section class="spotlight">
 		<h2 class="spotlight__header">
 			<span class="spotlight__header--prefix">Media Spotlight</span>
-			<div class="spotlight__link-to"> <%work = @works.sample(1)[0] %><%=  work[:title] %></div>
+			<div class="spotlight__link-to"> <% work = @works.sample(1)[0] %> <%=  work[:title] %></div>
 			by <%= work[:creator]%>
 		</h2>
 		<p class="spotlight__description">
