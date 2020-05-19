@@ -2,11 +2,11 @@
 	<section class="spotlight">
 		<h2 class="spotlight__header">
 			<span class="spotlight__header--prefix">Media Spotlight</span>
-			<div class="spotlight__link-to"> <% work = @works.sample(1)[0] %> <%=  work[:title] %></div>
-			by <%= work[:creator]%>
+			<div class="spotlight__link-to"> <%=  Work.spotlight[:title] %></div>
+			by <%= Work.spotlight[:creator]%>
 		</h2>
 		<p class="spotlight__description">
-			number of votes goes here 
+			<%= Work.spotlight.votes.count %> votes 
 		</p>
 	</section>
 	<hr class="root__hr">

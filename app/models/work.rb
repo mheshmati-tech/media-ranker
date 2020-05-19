@@ -17,6 +17,9 @@ class Work < ApplicationRecord
     #     end
     # end
 
+    def self.spotlight
+        return Work.all.sort_by { |media| media.votes.count }.reverse.first
+    end
     #from Leah 
     def self.albums
         return Work.where(category: 'album').sort_by { |album| album.votes.count }.reverse 
