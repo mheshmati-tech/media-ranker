@@ -1,4 +1,7 @@
 class UsersController < ApplicationController
+  def index
+  end
+
   def login_form
     @user = User.new
   end
@@ -32,7 +35,7 @@ class UsersController < ApplicationController
         flash[:notice] = "Goodbye #{user.name}."
       else
         session[:user_id] = nil
-        flash[:notice] = "Error! Unknown user."
+        flash.now[:notice] = "Error! Unknown user."
       end
     else
       flash[:error] = "You must be logged in to logout!"
