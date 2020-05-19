@@ -16,13 +16,13 @@
 				Top Albums
 			</h2>
 			<ul class="list-group top-ten__list">
-				<% @albums.sample(10).each do |album| %>
+				<% Work.albums.take(10).each do |album| %>
 					<li class="list-group-item">
 						<h4>
 							<%= link_to album.title, work_path(album.id)%>
 							<small class="top-ten__creator">by <%= album.creator %></small>
 						</h4>
-						<p>put votes here</p>
+						<p><%= album.votes.count%></p>
 					</li>
 				<% end %>
 			</ul>
@@ -32,13 +32,13 @@
 				Top Books
 			</h2>
 			<ul class="list-group top-ten__list">
-				<% @books.sample(10).each do |book| %>
+				<% Work.books.take(10).each do |book| %>
 					<li class="list-group-item">
 						<h4>
 							<%= link_to book.title, work_path(book.id)%>
 							<small class="top-ten__creator">by <%= book.creator %></small>
 						</h4>
-						<p>put votes here</p>
+						<p><%= book.votes.count %></p>
 					</li>
 				<% end %>
 			</ul>
@@ -48,13 +48,13 @@
 				Top Movies
 			</h2>
 			<ul class="list-group top-ten__list">
-				<% @movies.sample(10).each do |movie| %>
+				<% Work.movies.take(10).each do |movie| %>
 					<li class="list-group-item">
 						<h4>
 							<%= link_to movie.title, work_path(movie.id)%>
 							<small class="top-ten__creator">by <%= movie.creator %></small>
 						</h4>
-						<p>put votes here</p>
+						<p><%= movie.votes.count %></p>
 					</li>
 				<% end %>
 			</ul>
