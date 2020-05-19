@@ -56,7 +56,7 @@ describe Work do
     it "is invalid without a valid integer publication year" do
       @album.publication_year = nil
       @book.publication_year = 98
-      @movie.publication_year = "1998"
+      @movie.publication_year = 8
 
       album_result = @album.valid?
       book_result = @book.valid?
@@ -91,13 +91,16 @@ describe Work do
       expect(@movie.errors.messages).must_include :description
     end
   end
-  describe 'relations' do 
-    it 'has a vote' do 
+  describe "relations" do
+    it "has a vote" do
+      vote = votes(:vote_superdream)
 
+      work = works(:superdream)
+
+      expect(work.votes).must_include vote
     end
-    
-    it 'can set the vote' do 
 
+    it "can set the vote" do
     end
   end
 end
