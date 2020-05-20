@@ -1,4 +1,7 @@
 vote_superdream:
   work: superdream
   user: mair
+vote_becoming:
+  work: becoming
+  user: mair 
 
