@@ -1,14 +1,16 @@
 <main>
-	<section class="spotlight">
-		<h2 class="spotlight__header">
-			<span class="spotlight__header--prefix">Media Spotlight</span>
-			<div class="spotlight__link-to"> <%=  Work.spotlight[:title] %></div>
-			by <%= Work.spotlight[:creator]%>
-		</h2>
-		<p class="spotlight__description">
-			<%= Work.spotlight.votes.count %> votes 
-		</p>
-	</section>
+	<% unless Work.spotlight.nil? %>
+		<section class="spotlight">
+			<h2 class="spotlight__header">
+				<span class="spotlight__header--prefix">Media Spotlight</span>
+				<div class="spotlight__link-to"> <%=  Work.spotlight[:title] %></div>
+				by <%= Work.spotlight[:creator]%>
+			</h2>
+			<p class="spotlight__description">
+				<%= Work.spotlight.votes.count %> votes 
+			</p>
+		</section>
+	<% end %>
 	<hr class="root__hr">
 	<section class="top-ten__container">
 		<section class="top-ten__list-container">
