@@ -1,9 +1,13 @@
 <%= form_with model: @user, url: login_path do |f| %>
-
-  <div>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-  </div>
-  <%= f.submit "Login", class: "btn btn-outline-primary" %>
-
+	<% if @user.errors.any? %>
+		<p><strong>There was an error trying to log in: </strong></p>
+		<ul><% @user.errors.each do |column, message| %>
+				<li><%= column.capitalize %> <%= message%>.</li>
+			<% end %></ul>
+	<% end %>
+	<div>
+		<%= f.label :name %>
+		<%= f.text_field :name %>
+	</div>
+	<%= f.submit "Login", class: "btn btn-outline-primary" %>
 <% end %>

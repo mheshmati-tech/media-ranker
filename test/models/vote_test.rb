@@ -9,6 +9,8 @@ describe Vote do
     end
 
     it "has a user" do
+        vote = votes(:vote_superdream)
+        expect(vote.user).must_equal users(:mair)
     end
 
     it "can set the vote" do
