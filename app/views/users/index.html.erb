@@ -1,0 +1,23 @@
+<main>
+	<section class="media-table">
+		<h4>List of all users</h4>
+		<table class="table">
+			<thead>
+				<tr>
+					<th width="80">Name</th>
+					<th>Votes</th>
+					<th>Joined</th>
+				</tr>
+			</thead>
+			<tbody>
+				<% @users.each do |user| %>
+					<tr>
+						<td><%= user.name %></td>
+						<td width="row"><%= user.votes.count  %></td>
+						<td><%= user.created_at.strftime("%B %d, %Y") %></td>
+					</tr>
+				<% end %>
+			</tbody>
+		</table>
+	</section>
+</main>
