@@ -10,4 +10,23 @@
 			<button type="button" class = "btn btn-outline-primary"><%= link_to "Delete", work_path(@work.id), method: :delete, data: { confirm: "Are you sure you'd like to delete #{@work.title}? You can't undo this action." } %></button>
 		</section>
 	</section>
+	<section class="user-votes__container">
+		<h3 class="user-votes__header"><%= @work.votes.count %> votes for this <%= @work.category %></h3>
+		<table class="table">
+			<thead>
+				<tr>
+					<th>User</th>
+					<th>Date</th>
+				</tr>
+			</thead>
+			<tbody>
+				<% @work.votes.each do |vote| %>
+					<tr>
+						<td><%= link_to vote.user.name, user_path(vote.user.id) %></td>
+						<td><%= vote.created_at.strftime("%B %d, %Y")  %></td>
+					</tr>
+				<% end %>
+			</tbody>
+		</table>
+	</section>
 </main>

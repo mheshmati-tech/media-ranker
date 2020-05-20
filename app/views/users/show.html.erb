@@ -1,12 +1,11 @@
 <h2>User summary: <strong><%= @user.name%></strong></h2>
 <p>Joined site: <%= @user.created_at.strftime("%B %d, %Y")%></p>
-<h4>Votes</h4>
 <section class="user-votes__container">
 	<h3 class="user-votes__header">Votes</h3>
 	<table class="table">
 		<thead>
 			<tr>
-				<th width="80">Media title</th>
+				<th>Media title</th>
 				<th>Created by</th>
 				<th>Published</th>
 				<th>Category</th>
