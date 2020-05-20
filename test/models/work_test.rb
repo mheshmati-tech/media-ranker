@@ -1,13 +1,12 @@
 require "test_helper"
 
 describe Work do
+  before do
+    @album = works(:superdream)
+    @book = works(:becoming)
+    @movie = works(:forrest_gump)
+  end
   describe "validations" do
-    before do
-      @album = works(:superdream)
-      @book = works(:becoming)
-      @movie = works(:forrest_gump)
-    end
-
     it "is valid when all fields are present" do
       expect(@album.valid?).must_equal true
       expect(@book.valid?).must_equal true
@@ -94,15 +93,27 @@ describe Work do
     it "has votes" do
       vote = votes(:vote_superdream)
       anotha_vote = votes(:vote_superdream_2)
-      work = works(:superdream)
 
-      expect(work.votes).must_include vote
-      expect(work.votes).must_include anotha_vote
+      expect(@album.votes).must_include vote
+      expect(@album.votes).must_include anotha_vote
 
-      expect(work.votes.count).must_equal 2
-      work.votes.each do |vote|
+      expect(@album.votes.count).must_equal 2
+      @album.votes.each do |vote|
         expect(vote).must_be_instance_of Vote
       end
+    end
+  end
+  describe "custom methods" do
+    it "should display elements in descending order depending on their votes" do
+      work = Work.create(title: "idk", creator: "idk who I am anymore", publication_year: "what year is it?", description: "hi:)")
+
+      expect(@album.votes.count).must_equal 2
+      expect(work.votes.count).must_equal 0
+
+      expect(Work.albums.first).must_equal @album
+    end
+    it "spotlight must present the work with the most votes" do
+      expect(Work.spotlight).must_equal @album
     end
   end
 end
