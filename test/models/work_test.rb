@@ -2,7 +2,6 @@ require "test_helper"
 
 describe Work do
   describe "validations" do
-    #Arrange
     before do
       @album = works(:superdream)
       @book = works(:becoming)
@@ -56,7 +55,7 @@ describe Work do
     it "is invalid without a valid integer publication year" do
       @album.publication_year = nil
       @book.publication_year = 98
-      @movie.publication_year = 8
+      @movie.publication_year = "198"
 
       album_result = @album.valid?
       book_result = @book.valid?
@@ -92,15 +91,18 @@ describe Work do
     end
   end
   describe "relations" do
-    it "has a vote" do
+    it "has votes" do
       vote = votes(:vote_superdream)
-
+      anotha_vote = votes(:vote_superdream_2)
       work = works(:superdream)
 
       expect(work.votes).must_include vote
-    end
+      expect(work.votes).must_include anotha_vote
 
-    it "can set the vote" do
+      expect(work.votes.count).must_equal 2
+      work.votes.each do |vote|
+        expect(vote).must_be_instance_of Vote
+      end
     end
   end
 end
