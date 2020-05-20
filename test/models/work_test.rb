@@ -104,16 +104,32 @@ describe Work do
     end
   end
   describe "custom methods" do
-    it "should display elements in descending order depending on their votes" do
-      work = Work.create(title: "idk", creator: "idk who I am anymore", publication_year: "what year is it?", description: "hi:)")
+    describe "media descending" do
+      it "should display elements in descending order depending on their votes" do
+        work = Work.create(category: "album", title: "gemini", creator: "Macklemore", publication_year: 2017, description: "not as sick of an album so gets no votes :(")
+        expect(@album.votes.count).must_equal 2
+        expect(work.votes.count).must_equal 0
 
-      expect(@album.votes.count).must_equal 2
-      expect(work.votes.count).must_equal 0
-
-      expect(Work.albums.first).must_equal @album
+        expect(Work.albums.first).must_equal @album
+        expect(Work.albums.last).must_equal work
+      end
     end
-    it "spotlight must present the work with the most votes" do
-      expect(Work.spotlight).must_equal @album
+    describe "spotlight" do
+      it "must present the work with the most votes" do
+        expect(Work.spotlight).must_equal @album
+      end
+    end
+    describe "top_ten" do
+      it "should render work with votes" do
+        expect(Work.top_ten_albums).must_include @album
+        expect(Work.top_ten_books).must_include @book
+      end
+      it "should render the work with the highest vote first" do
+        expect(Work.top_ten_albums.first).must_equal @album
+      end
+      it "should not include media with no votes" do
+        expect(Work.top_ten_movies).wont_include @movie
+      end
     end
   end
 end
