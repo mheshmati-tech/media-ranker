@@ -44,7 +44,7 @@
 						<td width="row"><%= link_to book.title, work_path(book.id) %></td>
 						<td><%= book.creator %></td>
 						<td><%= book.publication_year %></td>
-						<td class="btn btn-outline-primary" ><%= link_to "Upvote", votes_path(book.id), method: :post %></td>
+						<td class = "btn btn-outline-primary"><%= link_to "Upvote", votes_path(book.id), method: :post %></td>
 					</tr>
 				<% end %>
 			</tbody>

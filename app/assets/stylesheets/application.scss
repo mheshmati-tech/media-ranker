@@ -13,6 +13,138 @@
  */
 
 /* Custom bootstrap variables must be set or imported *before* bootstrap. */
-@import "bootstrap";
+@import 'bootstrap';
+body {
+  font-family: 'Gudea', sans-serif;
+}
+.app-header__header {
+  max-width: 100%;
+  background-color: #b2dfdb;
+  margin-bottom: 1rem;
+  padding: 2rem 1rem 0.5rem 1rem;
+}
+.app-header__header h1 {
+  text-align: center;
+  //   padding-right: 10px;
+  margin: 25px auto 40px auto;
+}
+.app-header__header h1 a {
+  color: #ff5722;
+  padding-right: 20px;
+  margin-right: 10px;
+  border-right: white 2px solid;
+}
+.app-header__header h1 small {
+  color: white;
+}
+.app-header__nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.btn-outline-primary {
+  background-color: #8ecec7;
+  color: #26a69a;
+  border-color: #26a69a;
+  margin: 5px;
+}
 
-@import "**/*";
+// .nav {
+//   display: flex;
+//   flex-wrap: wrap;
+//   padding-left: 0;
+//   margin-bottom: 0;
+//   list-style: none;
+// }
+
+main {
+  padding: 1.5rem;
+}
+
+.spotlight {
+  padding: 0 2rem 2rem 2rem;
+  display: block;
+  box-sizing: border-box;
+}
+
+.spotlight__header {
+  color: #26a69a;
+}
+.spotlight__header--prefix {
+  color: #424242;
+}
+
+.spotlight__link-to {
+  color: #26a69a;
+  font-weight: bold;
+}
+
+.spotlight__link-to h2 {
+  line-height: 2rem;
+}
+.spotlight__description {
+  margin-bottom: 0;
+}
+
+p {
+  display: block;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+}
+
+.root__hr {
+  margin: 0px auto 3rem auto;
+  color: #eeeeee;
+}
+
+.top-ten__container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-column-gap: 2em;
+}
+.top-ten__header {
+  color: #26a69a;
+  border-bottom: 2px solid;
+  border-bottom-color: #b2dfdb;
+  text-align: center;
+}
+
+.top-ten__list {
+  list-style-type: none;
+  margin-left: 0;
+  padding-left: 0;
+}
+
+.list-group-item {
+  border: none;
+}
+
+a,
+h2,
+h3 {
+  color: #26a69a;
+}
+
+.top-ten__creator {
+  color: slategrey;
+}
+p {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+form {
+  display: block;
+  margin-top: 0em;
+}
+.form-group {
+  margin-bottom: 1rem;
+}
+.flash-msg__section {
+  margin: 0 2rem 0 2rem;
+  background-color: #d4edda;
+  border-color: #c3e6cb;
+}
+
+@import '**/*';

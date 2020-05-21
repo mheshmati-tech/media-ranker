@@ -8,13 +8,6 @@
 		<%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
 	</head>
 	<body>
-		<section class="flash-msg__section">
-			<% flash.each do |name, message| %>
-				<strong class="<%= name %>">
-					<%= message %>
-				</strong>
-			<% end %>
-		</section>
 		<header class="app-header__header">
 			<h1>
 				<%= link_to "Media Ranker", root_path %>
@@ -51,6 +44,13 @@
 				</ul>
 			</nav>
 		</header>
+		<section class="flash-msg__section">
+			<% flash.each do |name, message| %>
+				<strong class="<%= name %>">
+					<%= message %>
+				</strong>
+			<% end %>
+		</section>
 		<%= yield %>
 	</body>
 </html>

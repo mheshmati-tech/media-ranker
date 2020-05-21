@@ -1,27 +1,29 @@
-<h2>User summary: <strong><%= @user.name%></strong></h2>
-<p>Joined site: <%= @user.created_at.strftime("%B %d, %Y")%></p>
-<section class="user-votes__container">
-	<h3 class="user-votes__header">Votes</h3>
-	<table class="table">
-		<thead>
-			<tr>
-				<th>Media title</th>
-				<th>Created by</th>
-				<th>Published</th>
-				<th>Category</th>
-				<th>Voted on</th>
-			</tr>
-		</thead>
-		<tbody>
-			<% @user.votes.each do |vote| %>
+<main>
+	<h2>User summary: <strong><%= @user.name%></strong></h2>
+	<p>Joined site: <%= @user.created_at.strftime("%B %d, %Y")%></p>
+	<section class="user-votes__container">
+		<h3 class="user-votes__header">Votes</h3>
+		<table class="table">
+			<thead>
 				<tr>
-					<td><%= link_to vote.work.title, work_path(vote.work.id) %></td>
-					<td><%= vote.work.creator %></td>
-					<td><%= vote.work.publication_year %></td>
-					<td><%= vote.work.category.capitalize %></td>
-					<td><%= vote.created_at.strftime("%B %d, %Y")  %></td>
+					<th>Media title</th>
+					<th>Created by</th>
+					<th>Published</th>
+					<th>Category</th>
+					<th>Voted on</th>
 				</tr>
-			<% end %>
-		</tbody>
-	</table>
-</section>
+			</thead>
+			<tbody>
+				<% @user.votes.each do |vote| %>
+					<tr>
+						<td><%= link_to vote.work.title, work_path(vote.work.id) %></td>
+						<td><%= vote.work.creator %></td>
+						<td><%= vote.work.publication_year %></td>
+						<td><%= vote.work.category.capitalize %></td>
+						<td><%= vote.created_at.strftime("%B %d, %Y")  %></td>
+					</tr>
+				<% end %>
+			</tbody>
+		</table>
+	</section>
+</main>
