@@ -37,11 +37,10 @@ class UsersController < ApplicationController
   end
 
   def logout
-    if session[:user_id]
-      user = User.find_by(id: session[:user_id])
-      unless user.nil?
+    if @logged_user
+      unless @logged_user.nil?
         session[:user_id] = nil
-        flash[:notice] = "Goodbye #{user.name}."
+        flash[:notice] = "Goodbye #{@logged_user.name}."
       else
         session[:user_id] = nil
         flash.now[:notice] = "Error! Unknown user."

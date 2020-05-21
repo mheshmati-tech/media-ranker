@@ -51,7 +51,7 @@ describe Work do
       expect(@movie.errors.messages).must_include :creator
     end
 
-    it "is invalid without a valid integer publication year" do
+    it "is invalid without an integer publication year" do
       @album.publication_year = nil
       @book.publication_year = 98
       @movie.publication_year = "198"

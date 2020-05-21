@@ -43,8 +43,10 @@ class WorksController < ApplicationController
   def update
     @work = Work.find_by(id: params[:id])
     if @work.nil?
+      flash.now[:error] = "Something happened:( unable to update #{@work.title}."
       head :not_found
     elsif @work.update(work_params)
+      flash[:success] = "#{@work.title} successfully edited :)"
       redirect_to work_path(@work.id)
       return
     else
@@ -56,10 +58,12 @@ class WorksController < ApplicationController
     @work = Work.find_by(id: params[:id])
 
     if @work.nil?
+      flash.now[:error] = "Something happened:( unable to delete #{@work.title}."
       head :not_found
       return
     else
       @work.destroy
+      flash[:success] = "#{@work.title} successfully deleted :)"
       redirect_to root_path
       return
     end

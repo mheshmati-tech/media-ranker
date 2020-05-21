@@ -8,6 +8,7 @@
 			<button type="button" class = "btn btn-outline-primary"><%= link_to "Back to media ranks", root_path %></button>
 			<button type="button" class = "btn btn-outline-primary"><%= link_to "Edit", edit_work_path(@work.id) %></button>
 			<button type="button" class = "btn btn-outline-primary"><%= link_to "Delete", work_path(@work.id), method: :delete, data: { confirm: "Are you sure you'd like to delete #{@work.title}? You can't undo this action." } %></button>
+			<button type="button" class = "btn btn-outline-primary"><%= link_to "Upvote", votes_path(@work.id), method: :post %></button>
 		</section>
 	</section>
 	<section class="user-votes__container">
