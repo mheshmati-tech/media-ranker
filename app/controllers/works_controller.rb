@@ -1,4 +1,6 @@
 class WorksController < ApplicationController
+  before_action :find_work, only: [:show, :edit, :update, :destroy]
+
   def index
     @albums = Work.all.where category: "album"
     @books = Work.all.where category: "book"
@@ -6,12 +8,6 @@ class WorksController < ApplicationController
   end
 
   def show
-    @work = Work.find_by(id: params[:id])
-
-    if @work.nil?
-      head :not_found
-      return
-    end
   end
 
   def new
@@ -33,19 +29,10 @@ class WorksController < ApplicationController
   end
 
   def edit
-    @work = Work.find_by(id: params[:id])
-    if @work.nil?
-      head :not_found
-      return
-    end
   end
 
   def update
-    @work = Work.find_by(id: params[:id])
-    if @work.nil?
-      flash.now[:error] = "Something happened:( unable to update #{@work.title}."
-      head :not_found
-    elsif @work.update(work_params)
+    if @work.update(work_params)
       flash[:success] = "#{@work.title} successfully edited :)"
       redirect_to work_path(@work.id)
       return
@@ -55,23 +42,23 @@ class WorksController < ApplicationController
   end
 
   def destroy
-    @work = Work.find_by(id: params[:id])
-
-    if @work.nil?
-      flash.now[:error] = "Something happened:( unable to delete #{@work.title}."
-      head :not_found
-      return
-    else
-      votes = Vote.where(work_id: @work.id)
-      votes.destroy_all
-      @work.destroy
-      flash[:success] = "#{@work.title} successfully deleted :)"
-      redirect_to root_path
-      return
-    end
+    votes = Vote.where(work_id: @work.id)
+    votes.destroy_all
+    @work.destroy
+    flash[:success] = "#{@work.title} successfully deleted :)"
+    redirect_to root_path
+    return
   end
 
   private
+
+  def find_work
+    @work = Work.find_by(id: params[:id])
+    if @work.nil?
+      head :not_found
+      return
+    end
+  end
 
   def work_params
     user_input = params.require(:work).permit(:category, :title, :creator, :publication_year, :description)
