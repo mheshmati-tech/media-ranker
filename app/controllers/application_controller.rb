@@ -1,4 +1,6 @@
 class ApplicationController < ActionController::Base
+  before_action :look_up_user
+
   def look_up_user
     if session[:user_id]
       @logged_user = User.find_by(id: session[:user_id])
@@ -6,6 +8,4 @@ class ApplicationController < ActionController::Base
       @logged_user = nil
     end
   end
-
-  before_action :look_up_user
 end

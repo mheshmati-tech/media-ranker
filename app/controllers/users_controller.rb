@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action :look_up_user, except: [:login_form, :login]
+
   def index
     @users = User.all
   end
