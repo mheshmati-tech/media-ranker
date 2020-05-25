@@ -26,11 +26,11 @@ class UsersController < ApplicationController
         render :login_form
         return
       else
-        flash[:welcome] = "Welcome #{@user.name}"
+        flash[:success] = "Welcome #{@user.name}"
       end
     else
       #Existing User
-      flash[:welcome] = "Welcome back #{@user.name}"
+      flash[:success] = "Welcome back #{@user.name}"
     end
     session[:user_id] = @user.id
     redirect_to root_path
@@ -40,10 +40,10 @@ class UsersController < ApplicationController
     if @logged_user
       unless @logged_user.nil?
         session[:user_id] = nil
-        flash[:notice] = "Goodbye #{@logged_user.name}."
+        flash[:success] = "Goodbye #{@logged_user.name}."
       else
         session[:user_id] = nil
-        flash.now[:notice] = "Error! Unknown user."
+        flash.now[:success] = "Error! Unknown user."
       end
     else
       flash[:error] = "You must be logged in to logout!"
@@ -52,9 +52,7 @@ class UsersController < ApplicationController
   end
 
   def current
-    @user = User.find_by(id: session[:user_id])
-
-    if @user.nil?
+    if @logged_user.nil?
       flash[:error] = "You must be logged in to view this page"
       redirect_to root_path
       return

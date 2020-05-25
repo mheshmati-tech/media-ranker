@@ -14,9 +14,15 @@
 
 /* Custom bootstrap variables must be set or imported *before* bootstrap. */
 @import 'bootstrap';
-body {
+body,
+h1,
+h2,
+h3,
+h4,
+h5 {
   font-family: 'Gudea', sans-serif;
 }
+
 .app-header__header {
   max-width: 100%;
   background-color: #b2dfdb;
@@ -25,7 +31,7 @@ body {
 }
 .app-header__header h1 {
   text-align: center;
-  //   padding-right: 10px;
+  padding-right: 10px;
   margin: 25px auto 40px auto;
 }
 .app-header__header h1 a {
@@ -42,20 +48,30 @@ body {
   flex-direction: row;
   justify-content: space-between;
 }
+
+.alert {
+  margin: 0 2rem 0 2rem;
+  background-color: #d4edda;
+  border-color: #c3e6cb;
+}
+
+.alert-warning {
+  color: #856404;
+  background-color: #fff3cd;
+  border-color: #ffeeba;
+}
+.alert-success {
+  color: #155724;
+  background-color: #d4edda;
+  border-color: #c3e6cb;
+}
+
 .btn-outline-primary {
   background-color: #8ecec7;
   color: #26a69a;
   border-color: #26a69a;
   margin: 5px;
 }
-
-// .nav {
-//   display: flex;
-//   flex-wrap: wrap;
-//   padding-left: 0;
-//   margin-bottom: 0;
-//   list-style: none;
-// }
 
 main {
   padding: 1.5rem;
@@ -140,11 +156,6 @@ form {
 }
 .form-group {
   margin-bottom: 1rem;
-}
-.flash-msg__section {
-  margin: 0 2rem 0 2rem;
-  background-color: #d4edda;
-  border-color: #c3e6cb;
 }
 
 @import '**/*';

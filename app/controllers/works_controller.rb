@@ -62,6 +62,8 @@ class WorksController < ApplicationController
       head :not_found
       return
     else
+      votes = Vote.where(work_id: @work.id)
+      votes.destroy_all
       @work.destroy
       flash[:success] = "#{@work.title} successfully deleted :)"
       redirect_to root_path

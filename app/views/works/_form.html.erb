@@ -1,33 +1,35 @@
-<% if @work.errors.any? %>
-	<p><strong>There was an error in saving this media: </strong></p>
-	<ul>
-		<% @work.errors.each do |column, message| %>
-			<li><%= column.capitalize %> <%= message%>.</li>
-		<% end %>
-	</ul>
-<% end %>
-<div class="form">
-	<%= form_with model: @work do |f| %>
-		<div class = "form-group">
-			<%= f.label :category %>
-			<%= f.select  :category, options_for_select(["Album", "Book", "Movie"])%>
-		</div>
-		<div class = "form-group">
-			<%= f.label :title, "Title"%>
-			<%= f.text_field :title %>
-		</div>
-		<div class = "form-group">
-			<%= f.label :creator, "Creator"%>
-			<%= f.text_field :creator %>
-		</div>
-		<div class = "form-group">
-			<%= f.label :publication_year, "Publication Year"%>
-			<%= f.text_field :publication_year %>
-		</div>
-		<div class = "form-group">
-			<%= f.label :description, "Description"%>
-			<%= f.text_field :description %>
-		</div class = "form-group">
-		<%= f.submit action_name, class: "btn btn-outline-primary" %>
+<section>
+	<% if @work.errors.any? %>
+		<p><strong>There was an error in saving this media: </strong></p>
+		<ul>
+			<% @work.errors.each do |column, message| %>
+				<li><%= column.capitalize %> <%= message%>.</li>
+			<% end %>
+		</ul>
 	<% end %>
-</div>
+	<div class="form">
+		<%= form_with model: @work do |f| %>
+			<div class = "form-group">
+				<%= f.label :category %>
+				<%= f.select  :category, options_for_select(["Album", "Book", "Movie"]), {}, class: "form-control"%>
+			</div>
+			<div class = "form-group">
+				<%= f.label :title, "Title"%>
+				<%= f.text_field :title, class: "form-control"%>
+			</div>
+			<div class = "form-group">
+				<%= f.label :creator, "Creator"%>
+				<%= f.text_field :creator, class: "form-control"%>
+			</div>
+			<div class = "form-group">
+				<%= f.label :publication_year, "Publication Year"%>
+				<%= f.text_field :publication_year, class: "form-control"%>
+			</div>
+			<div class = "form-group">
+				<%= f.label :description, "Description"%>
+				<%= f.text_field :description, class: "form-control"%>
+			</div class = "form-group">
+			<%= f.submit action_name, class: "btn btn-outline-primary" %>
+		<% end %>
+	</div>
+</section>

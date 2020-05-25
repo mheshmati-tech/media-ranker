@@ -1,14 +1,4 @@
 class VotesController < ApplicationController
-  def index
-    # if params[:user_id]
-    #   user = User.find_by(id: params[:user_id])
-    #   @votes = user.votes
-    # elsif params[:work_id]
-    #   work = Work.find_by(id: params[:work_id])
-    #   @votes = work.votes
-    # end
-  end
-
   def create
     if @logged_user
       @work = Work.find_by(id: params[:format])

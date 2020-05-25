@@ -10,7 +10,7 @@
 	<body>
 		<header class="app-header__header">
 			<h1>
-				<%= link_to "Media Ranker", root_path %>
+				<strong><%= link_to "Media Ranker", root_path %></strong>
 				<small>Ranking the Best of Everything</small>
 			</h1>
 			<nav class="app-header__nav">
@@ -31,10 +31,10 @@
 				<ul class="nav app-header__user-nav-container">
 					<% unless @logged_user.nil? %>
 						<li class="nav-item app-header__nav_item">
-							<div class="btn btn-outline-primary" ><%= link_to "Logout", logout_path, method: :post %> </div>
+							<div class="btn btn-outline-primary"> Logged in as <%= @logged_user.name %> </div>
 						</li>
 						<li class="nav-item app-header__nav_item">
-							<div class="btn btn-outline-primary"> Logged in as <%= @logged_user.name %> </div>
+							<div class="btn btn-outline-primary" ><%= link_to "Logout", logout_path, method: :post %> </div>
 						</li>
 					<% else %>
 						<li class="nav-item app-header__nav_item">
@@ -44,11 +44,13 @@
 				</ul>
 			</nav>
 		</header>
-		<section class="flash-msg__section">
+		<section class="alert__container">
 			<% flash.each do |name, message| %>
-				<strong class="<%= name %>">
-					<%= message %>
-				</strong>
+				<% if flash[:success] %>
+					<div class="alert alert-success"> <span> <%= message%> </span></div>
+				<% else %>
+					<div class = "alert alert-warning"><span> <%= message%> </span></div>
+				<% end %>
 			<% end %>
 		</section>
 		<%= yield %>
